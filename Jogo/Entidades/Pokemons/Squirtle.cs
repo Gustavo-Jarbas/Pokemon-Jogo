@@ -13,7 +13,9 @@ namespace Jogo.Entidades.Pokemons
             this.TipoPokemon = Tipo.Agua;
             this.HpTotal = 15;
             this.AtaqueBasico = 6;
+            this.AtaqueBasicoTxt = "SOCÃO";
             this.Especial = 5;
+            this.EspecialTxt = "Bolhas";
             this.Descricao = "Tartaruga Azul";
         }
     }

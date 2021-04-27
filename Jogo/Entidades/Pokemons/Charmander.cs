@@ -13,7 +13,9 @@ namespace Jogo.Entidades.Pokemons
             this.TipoPokemon = Tipo.Fogo;
             this.HpTotal = 20;
             this.AtaqueBasico = 3;
+            this.AtaqueBasicoTxt = "Mordida";
             this.Especial = 5;
+            this.EspecialTxt = "Bola de fogo";
             this.Descricao = "Dinossauro com fogo no rabo";
         }
     }

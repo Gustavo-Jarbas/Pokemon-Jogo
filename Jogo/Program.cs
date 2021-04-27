@@ -16,14 +16,18 @@ namespace Jogo
             Pokemon squirtle = new Squirtle();
 
             Treinador treinador = new Treinador("Gustavo");
+            Treinador treinador2 = new Treinador("Jarbas");
+
             Pokemon pokemons = new Pokemon();
 
          
             treinador.Pokemons.Add(charmander);
-            treinador.Pokemons.Add(bulbassauro);
-            treinador.Pokemons.Add(squirtle);
+            treinador2.Pokemons.Add(bulbassauro);
 
-            treinador.Pokedex();
+            Batalha batalha = new Batalha(treinador, treinador2);
+            batalha.IniciarBatalha();
+
+            //treinador.Pokedex();
         }
     }
 }

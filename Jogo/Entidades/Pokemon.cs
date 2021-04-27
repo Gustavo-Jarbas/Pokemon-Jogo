@@ -12,7 +12,9 @@ namespace Jogo.Entidades
         public int HpTotal { get; set; }
         public int HpAtual { get; set; }
         public int AtaqueBasico { get; set; }
+        public string AtaqueBasicoTxt { get; set; }
         public int Especial { get; set; }
+        public string EspecialTxt { get; set; }
         public string Descricao { get; set; }
 
 
@@ -30,6 +32,8 @@ namespace Jogo.Entidades
             Especial = especial;
             Descricao = descricao;
         }
+
+
 
     }
 }
