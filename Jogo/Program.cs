@@ -25,7 +25,9 @@ namespace Jogo
             treinador2.Pokemons.Add(bulbassauro);
 
             Batalha batalha = new Batalha(treinador, treinador2);
-            batalha.IniciarBatalha();
+            Treinador vencedor = batalha.IniciarBatalha();
+
+            Console.WriteLine($"O treinador {vencedor.Nome} e seu {vencedor.Pokemons[0].Nome} ganharam!!!");
 
             //treinador.Pokedex();
         }

@@ -54,29 +54,27 @@ namespace Jogo.Entidades
                 {
                     Console.WriteLine($"{SeuPokemon} atacou {PokemonSelvagem} com o ataque {SeuPokemonAtaqueTxt} o causando {SeuPokemonAtaqueDano} de dano");
                     PokemonSelvagemVida -= SeuPokemonAtaqueDano;
-                    Console.WriteLine($"{PokemonSelvagem} agora está com {PokemonSelvagemVida}");
+                    Console.WriteLine($"{PokemonSelvagem} está com {PokemonSelvagemVida} de vida");
                 }
 
                 if(ataque == 2)
                 {
                     Console.WriteLine($"{SeuPokemon} atacou {PokemonSelvagem} com o ataque Especial {SeuPokemonEspecialTxt} o causando {SeuPokemonEspecialDano} de dano");
                     PokemonSelvagemVida -= SeuPokemonEspecialDano;
-                    Console.WriteLine($"{PokemonSelvagem} agora está com {PokemonSelvagemVida}");
+                    Console.WriteLine($"{PokemonSelvagem} está com {PokemonSelvagemVida} de vida");
                 }
 
 
-            } while (SeuPokemonVida > 0 || PokemonSelvagemVida > 0);
+            } while (SeuPokemonVida > 0 && PokemonSelvagemVida > 0);
 
-            VerificarVencedor();
-        
-            return Vencedor; 
-        }
-       
-        public Treinador VerificarVencedor()
-        {
-            Vencedor = Jogador1;
+            Vencedor = VerificarVencedor(SeuPokemonVida, PokemonSelvagemVida);
 
             return Vencedor;
+        }
+
+        public Treinador VerificarVencedor(int seuPokemonVida, int pokemonSelvagemVida)
+        {
+            return (seuPokemonVida > 0) ? Jogador1 : Jogador2; //Expressão Condicional Ternária
         }
 
 }
