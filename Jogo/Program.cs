@@ -20,7 +20,7 @@ namespace Jogo
 
             Pokemon pokemons = new Pokemon();
 
-         
+
             treinador.Pokemons.Add(charmander);
             treinador2.Pokemons.Add(bulbassauro);
 
@@ -30,6 +30,10 @@ namespace Jogo
             Console.WriteLine($"O treinador {vencedor.Nome} e seu {vencedor.Pokemons[0].Nome} ganharam!!!");
 
             //treinador.Pokedex();
+
+    
+          
+
         }
     }
 }

@@ -12,6 +12,18 @@ namespace Jogo.Entidades
         public Treinador Jogador2;
         public Treinador Vencedor;
 
+        public int pok1Vida;
+        public int pok1DanoNormal;
+        public int pok1DanoEspecial;
+
+        public int pok2Vida;
+        public int pok2DanoNormal;
+        public int pok2DanoEspecial;
+
+        public int pok1Intervalo; // ainda não usei
+        public int pok2Intervalo; // ainda não usei
+
+
         public Batalha(Treinador jogador1, Treinador jogador2)
         {
             this.Jogador1 = jogador1;
@@ -20,56 +32,89 @@ namespace Jogo.Entidades
 
         public Treinador IniciarBatalha()
         {
-            string PokemonSelvagem = Jogador2.Pokemons[0].Nome;
-            int PokemonSelvagemVida = Jogador2.Pokemons[0].HpTotal;
-
             string SeuPokemon = Jogador1.Pokemons[0].Nome;
-            int SeuPokemonVida = Jogador1.Pokemons[0].HpTotal;
+            pok1Vida = Jogador1.Pokemons[0].HpTotal;
 
             string SeuPokemonAtaqueTxt = Jogador1.Pokemons[0].AtaqueBasicoTxt;
-            int SeuPokemonAtaqueDano = Jogador1.Pokemons[0].AtaqueBasico;
+            pok1DanoNormal = Jogador1.Pokemons[0].AtaqueBasico;
 
             string SeuPokemonEspecialTxt = Jogador1.Pokemons[0].EspecialTxt;
-            int SeuPokemonEspecialDano = Jogador1.Pokemons[0].Especial;
+            pok1DanoEspecial = Jogador1.Pokemons[0].Especial;
+
+
+
+            string PokemonSelvagem = Jogador2.Pokemons[0].Nome;
+            pok2Vida = Jogador2.Pokemons[0].HpTotal;
+
+            string PokemonSelvagemAtaqueTxt = Jogador2.Pokemons[0].AtaqueBasicoTxt;
+            pok2DanoNormal = Jogador2.Pokemons[0].AtaqueBasico;
+
+            string PokemonSelvagemEspecialTxt = Jogador2.Pokemons[0].EspecialTxt;
+            pok2DanoEspecial = Jogador2.Pokemons[0].Especial;
 
             do
             {
                 int ataque;
 
                 Console.WriteLine($"Pokemon Selvagem: {PokemonSelvagem}");
-                Console.WriteLine($"Vida: {PokemonSelvagemVida}");
+                Console.WriteLine($"Vida: {pok2Vida}");
                 Console.WriteLine("");
                 Console.WriteLine($"Seu Pokemon: {SeuPokemon}");
-                Console.WriteLine($"Vida: {SeuPokemonVida}");
+                Console.WriteLine($"Vida: {pok1Vida}");
                 Console.WriteLine("");
                 Console.WriteLine("Seus ataques são: ");
-                Console.WriteLine($"[1] - {SeuPokemonAtaqueTxt}: {SeuPokemonAtaqueDano} de Dano");
-                Console.WriteLine($"[2] - {SeuPokemonEspecialTxt}: {SeuPokemonEspecialDano} de Dano");
+                Console.WriteLine($"[1] - {SeuPokemonAtaqueTxt}: {pok1DanoNormal} de Dano");
+                Console.WriteLine($"[2] - {SeuPokemonEspecialTxt}: {pok1DanoEspecial} de Dano");
                 Console.Write("Digite o numero do ataque escolhido: ");
                 ataque = int.Parse(Console.ReadLine());
 
                 Console.Clear();
-
-                if (ataque == 1)
+                if(ataque == 1)
                 {
-                    Console.WriteLine($"{SeuPokemon} atacou {PokemonSelvagem} com o ataque {SeuPokemonAtaqueTxt} o causando {SeuPokemonAtaqueDano} de dano");
-                    PokemonSelvagemVida -= SeuPokemonAtaqueDano;
-                    Console.WriteLine($"{PokemonSelvagem} está com {PokemonSelvagemVida} de vida");
+                    AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoNormal);
+                }
+                if (ataque == 2)
+                {
+                    AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoEspecial);
                 }
 
-                if(ataque == 2)
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                int ataqueSelvagem = rnd.Next(1, 3);
+
+                if (ataqueSelvagem == 1)
                 {
-                    Console.WriteLine($"{SeuPokemon} atacou {PokemonSelvagem} com o ataque Especial {SeuPokemonEspecialTxt} o causando {SeuPokemonEspecialDano} de dano");
-                    PokemonSelvagemVida -= SeuPokemonEspecialDano;
-                    Console.WriteLine($"{PokemonSelvagem} está com {PokemonSelvagemVida} de vida");
+                    AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemAtaqueTxt, pok2DanoNormal);
+                }
+                if (ataqueSelvagem == 2)
+                {
+                    
+                    AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemEspecialTxt, pok2DanoEspecial);
                 }
 
 
-            } while (SeuPokemonVida > 0 && PokemonSelvagemVida > 0);
+            } while (pok1Vida > 0 && pok2Vida > 0);
 
-            Vencedor = VerificarVencedor(SeuPokemonVida, PokemonSelvagemVida);
+            Vencedor = VerificarVencedor(pok1Vida, pok2Vida);
 
             return Vencedor;
+        }
+
+        public void AtaquePokemon(bool qualPokemon, string pok1, string pok2, string pokAtaqueTxt, int pokAtaqueDano)
+        {
+
+            if (qualPokemon)
+            {
+                Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
+                pok2Vida -= pokAtaqueDano;
+            }
+            else
+            {   
+                
+                Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
+                pok1Vida -= pokAtaqueDano;
+            
+            }
+
         }
 
         public Treinador VerificarVencedor(int seuPokemonVida, int pokemonSelvagemVida)
