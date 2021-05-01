@@ -20,8 +20,8 @@ namespace Jogo.Entidades
         public int pok2DanoNormal;
         public int pok2DanoEspecial;
 
-        public int pok1Intervalo; // ainda não usei
-        public int pok2Intervalo; // ainda não usei
+        public int pok1IntervaloAtaque2 = 0; // ainda não usei
+        public int pok2IntervaloAtaque2 = 0; // ainda não usei
 
 
         public Batalha(Treinador jogador1, Treinador jogador2)
@@ -69,13 +69,20 @@ namespace Jogo.Entidades
                 ataque = int.Parse(Console.ReadLine());
 
                 Console.Clear();
+
                 if(ataque == 1)
                 {
                     AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoNormal);
                 }
-                if (ataque == 2)
+                else if (ataque == 2 && pok1IntervaloAtaque2 % 2 == 0)
                 {
+                    pok1IntervaloAtaque2++;
                     AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoEspecial);
+                }
+                else
+                {
+                    pok1IntervaloAtaque2++;
+                    Console.WriteLine("Habilidade em intervalo!");
                 }
 
                 Random rnd = new Random(DateTime.Now.Millisecond);
@@ -85,12 +92,16 @@ namespace Jogo.Entidades
                 {
                     AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemAtaqueTxt, pok2DanoNormal);
                 }
-                if (ataqueSelvagem == 2)
+                else if (ataqueSelvagem == 2 && pok2IntervaloAtaque2 % 2 == 0)
                 {
-                    
+                    pok2IntervaloAtaque2++;
                     AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemEspecialTxt, pok2DanoEspecial);
                 }
-
+                else
+                {
+                    pok2IntervaloAtaque2++;
+                    Console.WriteLine("Habilidade em intervalo!");
+                }
 
             } while (pok1Vida > 0 && pok2Vida > 0);
 
@@ -102,17 +113,14 @@ namespace Jogo.Entidades
         public void AtaquePokemon(bool qualPokemon, string pok1, string pok2, string pokAtaqueTxt, int pokAtaqueDano)
         {
 
+            Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
             if (qualPokemon)
             {
-                Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
                 pok2Vida -= pokAtaqueDano;
             }
             else
             {   
-                
-                Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
                 pok1Vida -= pokAtaqueDano;
-            
             }
 
         }

@@ -18,6 +18,9 @@ namespace Jogo.Entidades
         public string Descricao { get; set; }
 
 
+
+
+
         public Pokemon()
         {
         }

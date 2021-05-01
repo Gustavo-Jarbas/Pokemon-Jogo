@@ -31,9 +31,6 @@ namespace Jogo
 
             //treinador.Pokedex();
 
-    
-          
-
         }
     }
 }
