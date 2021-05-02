@@ -12,13 +12,12 @@ namespace Jogo
     {
         static void Main(string[] args)
         {
-            var player = new SoundPlayer(@"pokemon.wav");
-            player.Play();
+            
 
    
 
             Historia novojogo = new Historia();
-            novojogo.DadosJogador();
+            novojogo.Menu();
             novojogo.Introducao();
             novojogo.PrimeiraFase();
             

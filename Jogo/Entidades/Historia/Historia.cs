@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Jogo.Entidades.Enums;
 using Jogo.Entidades.Pokemons;
+using System.Media;
 
 namespace Jogo.Entidades
 {
@@ -32,30 +33,34 @@ namespace Jogo.Entidades
 
         }
 
-        public void DadosJogador()
+
+        
+
+    
+        public void Menu()
         {
-            Console.WriteLine("               _                             \n" +
-                              "   _ __   ___ | | _____ _ __ ___   ___  _ __ \n" +
-                              "  | '_ \\ / _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\ \n " +
-                              " | |_) | (_) |   < __ / | | | | | (_) | | | |\n" +
-                              "  | .__/ \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_| \n" +
-                              "  |_|\n\n" +
-                              "                         /\\/\\ |\\              \n" +
-                              "                         \\ \\ \\//               \n" +
-                              "                         / o_o\\                \n" +
-                              "                         \\____/                 \n" +
-                              "                         /_\\/_\\                 \n\n\n");
-
-
-
-
-            Console.WriteLine("\nBem-vindo ao mundo POKEMON!\n\n" +
-             "Antes de iniciarmos o game, fale me um pouco sobre voce >D\n\n\n");
+            var playerInicial = new SoundPlayer(@"iniciar.wav");
+            playerInicial.PlayLooping();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("Press qualquer tecla ...");
+            Console.WriteLine("                    _                             \n" +
+                              "        _ __   ___ | | _____ _ __ ___   ___  _ __ \n" +
+                              "       | '_ \\ / _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\ \n " +
+                              "      | |_) | (_) |   < __ / | | | | | (_) | | | |\n" +
+                              "       | .__/ \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_| \n" +
+                              "       |_|\n\n" +
+                          "       _   _          _                  /\\/\\ |\\               \n" +
+                          "      | | | |  _ _   (_)  _ __           \\ \\ \\//               \n" +
+                          "      | |_| | | ' \\  | | |'_  \\          / o_o\\                \n" +
+                          "       \\___/  |_||_| |_| |.__ /          \\____/                 \n" +
+                           "                         |_|             /_\\/_\\                 \n\n\n");
+
             Console.ResetColor();
-            Console.ReadKey();
-            Console.Write("                         ");
+
+
+
+            ImprimirTextos("\nBem-vindo ao mundo POKEMON!\n\n" +
+             "Antes de iniciarmos o game, fale me um pouco sobre voce >D\n\n\n");
+            
 
             Console.Clear();
             Console.Write("\nVoce é um garoto ou uma garota?\nR:");
@@ -70,7 +75,7 @@ namespace Jogo.Entidades
             if (EscolhaPokemon == 0)
             {
                 TipoPokemon = Tipo.Fogo;
-                this.PokemonEscolhido = new Charmander();
+                PokemonEscolhido = new Charmander();
                 
 
             }
@@ -100,18 +105,7 @@ namespace Jogo.Entidades
             Console.Clear();
             foreach (var texto in textos)
             {
-                foreach (var letra in texto)
-                {
-                    Console.Write(letra);
-                    Thread.Sleep(60);
-
-
-                }
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("Press qualquer tecla ...");
-                Console.ResetColor();
-                Console.ReadKey();
-                Console.Write("                         ");
+                ImprimirTextos(texto);
             }
 
 
@@ -123,15 +117,13 @@ namespace Jogo.Entidades
         public void PrimeiraFase()
         {
             Console.Clear();
-            Console.WriteLine("Vamos iniciar com um breve duelo para testar suas habilidades ... \n\n"+
-                $"\n\nVocê escolheu o tipo de Pokemon de {PokemonEscolhido.TipoPokemon} uma boa e fabulosa escolha"+
-                $"\nCom essa especialidade o nome de seu Pokemon é {PokemonEscolhido.Nome}");
+            ImprimirTextos($"Você escolheu o tipo de Pokemon de {PokemonEscolhido.TipoPokemon}, essa foi uma boa e fabulosa escolha"+
+                $"\nCom essa especialidade o nome de seu Pokemon é {PokemonEscolhido.Nome} \n" +
+                "\n\n\nVamos iniciar com um breve duelo para testar suas habilidades ... \n\n");
 
-            Console.WriteLine("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("Press qualquer tecla ...");
-            Console.ResetColor();
-            Console.ReadKey();
+            ImprimirTextos("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
+
+
             Console.Clear();
 
             Treinador treinador = new Treinador(NomeJogador);
@@ -151,7 +143,21 @@ namespace Jogo.Entidades
 
 
         }
+        public static void ImprimirTextos(string texto)
+        {
+            foreach (var letra in texto)
+            {
+                Console.Write(letra);
+                Thread.Sleep(60);
 
+
+            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Press qualquer tecla ...");
+            Console.ResetColor();
+            Console.ReadKey();
+            Console.Write("                         ");
+        }
 
 
 

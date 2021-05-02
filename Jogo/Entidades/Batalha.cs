@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Jogo.Entidades;
 using Jogo.Entidades.Enums;
 using Jogo.Entidades.Pokemons;
+using System.Media;
+
+
+
 
 namespace Jogo.Entidades
 {
@@ -32,6 +36,8 @@ namespace Jogo.Entidades
 
         public Treinador IniciarBatalha()
         {
+            var playerBatalha = new SoundPlayer(@"batalha.wav");
+            playerBatalha.Play();
             string SeuPokemon = Jogador1.Pokemons[0].Nome;
             pok1Vida = Jogador1.Pokemons[0].HpTotal;
 
@@ -56,7 +62,7 @@ namespace Jogo.Entidades
             {
                 int ataque;
 
-                Console.WriteLine($"Pokemon Selvagem: {PokemonSelvagem}");
+                Console.WriteLine($"Pokemon Inimigo: {PokemonSelvagem}");
                 Console.WriteLine($"Vida: {pok2Vida}");
                 Console.WriteLine("");
                 Console.WriteLine($"Seu Pokemon: {SeuPokemon}");
