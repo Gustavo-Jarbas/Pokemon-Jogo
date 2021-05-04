@@ -9,6 +9,7 @@ namespace Jogo.Entidades
     class Treinador
     {
         public string Nome { get; set; }
+        public double PokeCoin { get; set; }
         public List<Pokemon> Pokemons { get; set; } = new List<Pokemon>();
 
         public Treinador()

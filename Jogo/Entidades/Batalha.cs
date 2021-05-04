@@ -24,8 +24,8 @@ namespace Jogo.Entidades
         public int pok2DanoNormal;
         public int pok2DanoEspecial;
 
-        public int pok1IntervaloAtaque2 = 0; // ainda não usei
-        public int pok2IntervaloAtaque2 = 0; // ainda não usei
+        public int pok1IntervaloAtaque2 = 0; 
+        public int pok2IntervaloAtaque2 = 0; 
 
 
         public Batalha(Treinador jogador1, Treinador jogador2)
@@ -83,12 +83,24 @@ namespace Jogo.Entidades
                 else if (ataque == 2 && pok1IntervaloAtaque2 % 2 == 0)
                 {
                     pok1IntervaloAtaque2++;
-                    AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoEspecial);
+                    AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonEspecialTxt, pok1DanoEspecial);
                 }
-                else
+                else if (pok1IntervaloAtaque2 % 2 == 1)
                 {
                     pok1IntervaloAtaque2++;
+                    Console.Clear();
                     Console.WriteLine("Habilidade em intervalo!");
+                    Console.WriteLine("");
+                    Console.WriteLine("Seus ataques são: ");
+                    Console.WriteLine($"[1] - {SeuPokemonAtaqueTxt}: {pok1DanoNormal} de Dano");
+                    Console.Write("Digite o numero do ataque escolhido: ");
+                    ataque = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    if (ataque == 1)
+                    {
+                        AtaquePokemon(true, SeuPokemon, PokemonSelvagem, SeuPokemonAtaqueTxt, pok1DanoNormal);
+                    }
+
                 }
 
                 Random rnd = new Random(DateTime.Now.Millisecond);
