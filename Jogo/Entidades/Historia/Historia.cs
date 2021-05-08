@@ -16,9 +16,11 @@ namespace Jogo.Entidades
     {
         public string NomeJogador;
         public string Sexo;
+        public double Dinheiro = 10;
         public Tipo TipoPokemon;
         private int EscolhaPokemon;
         public Pokemon PokemonEscolhido;
+        
 
         public Historia()
         {
@@ -117,9 +119,12 @@ namespace Jogo.Entidades
         public void PrimeiraFase()
         {
             Console.Clear();
+            ImprimirDinheiro();
             ImprimirTextos($"Você escolheu o tipo de Pokemon de {PokemonEscolhido.TipoPokemon}, essa foi uma boa e fabulosa escolha"+
                 $"\nCom essa especialidade o nome de seu Pokemon é {PokemonEscolhido.Nome} \n" +
-                "\n\n\nVamos iniciar com um breve duelo para testar suas habilidades ... \n\n");
+                "\n\nRepare que ao lado direito está seu dinheiro e conforme você ir vencendo batalhas vai ganhando mais e" +
+                "\nutilizqar para comprar pokebolas e poçoes de cura"+
+                "\n\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
 
             ImprimirTextos("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
 
@@ -159,8 +164,20 @@ namespace Jogo.Entidades
             Console.Write("                         ");
         }
 
+        public void ImprimirDinheiro()
+        {
+            for (var din = 1; din <= Dinheiro; din++)
+            {
+                Console.Clear();
+                Console.Write($"                                                                                                   |R$ {din}|");
+                Thread.Sleep(20);
 
+            }
 
+            Console.WriteLine();
+        }
+
+        
 
     }
 
