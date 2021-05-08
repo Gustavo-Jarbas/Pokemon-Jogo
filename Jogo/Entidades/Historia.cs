@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Jogo.Entidades.Enums;
 using Jogo.Entidades.Pokemons;
 using System.Media;
+using Jogo.Entidades.FuncoesGame;
 
 namespace Jogo.Entidades
 {
@@ -20,7 +21,7 @@ namespace Jogo.Entidades
         public Tipo TipoPokemon;
         private int EscolhaPokemon;
         public Pokemon PokemonEscolhido;
-        
+
 
         public Historia()
         {
@@ -36,33 +37,18 @@ namespace Jogo.Entidades
         }
 
 
-        
 
-    
-        public void Menu()
+
+
+        public void SolicitandoDadosJogador()
         {
-            var playerInicial = new SoundPlayer(@"iniciar.wav");
-            playerInicial.PlayLooping();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("                    _                             \n" +
-                              "        _ __   ___ | | _____ _ __ ___   ___  _ __ \n" +
-                              "       | '_ \\ / _ \\| |/ / _ \\ '_ ` _ \\ / _ \\| '_ \\ \n " +
-                              "      | |_) | (_) |   < __ / | | | | | (_) | | | |\n" +
-                              "       | .__/ \\___/|_|\\_\\___|_| |_| |_|\\___/|_| |_| \n" +
-                              "       |_|\n\n" +
-                          "       _   _          _                  /\\/\\ |\\               \n" +
-                          "      | | | |  _ _   (_)  _ __           \\ \\ \\//               \n" +
-                          "      | |_| | | ' \\  | | |'_  \\          / o_o\\                \n" +
-                          "       \\___/  |_||_| |_| |.__ /          \\____/                 \n" +
-                           "                         |_|             /_\\/_\\                 \n\n\n");
 
-            Console.ResetColor();
+            Game.Musicas(1);
+            Game.Introducao();
 
-
-
-            ImprimirTextos("\nBem-vindo ao mundo POKEMON!\n\n" +
+            Game.ImprimirTextos("\nBem-vindo ao mundo POKEMON!\n\n" +
              "Antes de iniciarmos o game, fale me um pouco sobre voce >D\n\n\n");
-            
+
 
             Console.Clear();
             Console.Write("\nVoce é um garoto ou uma garota?\nR:");
@@ -72,13 +58,13 @@ namespace Jogo.Entidades
 
             Console.Write("\n\nUAUUUUUU!!!! Que lindo nome, agora escolha o tipo de pokemon que deseja iniciar\n(0)Fogo\n(1)Agua\n(2)Planta\nR:");
             this.EscolhaPokemon = int.Parse(Console.ReadLine());
-            
+
 
             if (EscolhaPokemon == 0)
             {
                 TipoPokemon = Tipo.Fogo;
                 PokemonEscolhido = new Charmander();
-                
+
 
             }
             if (EscolhaPokemon == 1)
@@ -96,7 +82,7 @@ namespace Jogo.Entidades
 
         }
 
-        public void Introducao()
+        public void Apresentacao()
         {
 
             var textos = new List<string>();
@@ -107,7 +93,7 @@ namespace Jogo.Entidades
             Console.Clear();
             foreach (var texto in textos)
             {
-                ImprimirTextos(texto);
+                Game.ImprimirTextos(texto);
             }
 
 
@@ -119,14 +105,14 @@ namespace Jogo.Entidades
         public void PrimeiraFase()
         {
             Console.Clear();
-            ImprimirDinheiro();
-            ImprimirTextos($"Você escolheu o tipo de Pokemon de {PokemonEscolhido.TipoPokemon}, essa foi uma boa e fabulosa escolha"+
-                $"\nCom essa especialidade o nome de seu Pokemon é {PokemonEscolhido.Nome} \n" +
-                "\n\nRepare que ao lado direito está seu dinheiro e conforme você ir vencendo batalhas vai ganhando mais e" +
-                "\nutilizqar para comprar pokebolas e poçoes de cura"+
-                "\n\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
+            Game.ImprimirDinheiro(this.Dinheiro);
+            Game.ImprimirTextos($"Você escolheu o tipo de Pokemon de {PokemonEscolhido.TipoPokemon}, essa foi uma boa e fabulosa escolha" +
+                $"\nCom essa especialidade o nome de seu Pokemon é {PokemonEscolhido.Nome} \n");
+            Game.ImprimirTextos("\n\nRepare que ao lado direito está seu dinheiro e conforme você ir vencendo batalhas vai ganhando mais e" +
+            "\nutilizqar para comprar pokebolas e poçoes de cura\n");
+                Game.ImprimirTextos("\n\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
 
-            ImprimirTextos("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
+            Game.ImprimirTextos("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
 
 
             Console.Clear();
@@ -147,38 +133,10 @@ namespace Jogo.Entidades
 
 
 
+
+
+
         }
-        public static void ImprimirTextos(string texto)
-        {
-            foreach (var letra in texto)
-            {
-                Console.Write(letra);
-                Thread.Sleep(60);
-
-
-            }
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("Press qualquer tecla ...");
-            Console.ResetColor();
-            Console.ReadKey();
-            Console.Write("                         ");
-        }
-
-        public void ImprimirDinheiro()
-        {
-            for (var din = 1; din <= Dinheiro; din++)
-            {
-                Console.Clear();
-                Console.Write($"                                                                                                   |R$ {din}|");
-                Thread.Sleep(20);
-
-            }
-
-            Console.WriteLine();
-        }
-
-        
 
     }
-
 }

@@ -4,6 +4,7 @@ using Jogo.Entidades;
 using Jogo.Entidades.Enums;
 using Jogo.Entidades.Pokemons;
 using System.Media;
+using Jogo.Entidades.FuncoesGame;
 
 
 
@@ -36,8 +37,8 @@ namespace Jogo.Entidades
 
         public Treinador IniciarBatalha()
         {
-            var playerBatalha = new SoundPlayer(@"batalha.wav");
-            playerBatalha.Play();
+            Game.Musicas(2);
+
             string SeuPokemon = Jogador1.Pokemons[0].Nome;
             pok1Vida = Jogador1.Pokemons[0].HpTotal;
 
@@ -73,7 +74,7 @@ namespace Jogo.Entidades
                 Console.WriteLine($"[2] - {SeuPokemonEspecialTxt}: {pok1DanoEspecial} de Dano");
                 Console.Write("Digite o numero do ataque escolhido: ");
                 ataque = int.Parse(Console.ReadLine());
-
+               
                 Console.Clear();
 
                 if(ataque == 1)
@@ -118,7 +119,7 @@ namespace Jogo.Entidades
 
         public void AtaquePokemon(bool qualPokemon, string pok1, string pok2, string pokAtaqueTxt, int pokAtaqueDano)
         {
-
+            
             Console.WriteLine($"{pok1} atacou {pok2} com o ataque {pokAtaqueTxt} o causando {pokAtaqueDano} de dano");
             if (qualPokemon)
             {
