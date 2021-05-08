@@ -10,6 +10,7 @@ using Jogo.Entidades.Enums;
 using Jogo.Entidades.Pokemons;
 using System.Media;
 using Jogo.Entidades.FuncoesGame;
+using Jogo.Entidades.Fases.Inimigos;
 
 namespace Jogo.Entidades
 {
@@ -131,11 +132,31 @@ namespace Jogo.Entidades
 
             Console.WriteLine($"O treinador {vencedor.Nome} e seu {vencedor.Pokemons[0].Nome} ganharam!!!");
 
+            //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            // ABAIXO TEM UM EXEMPLO DE COMO É FEITO PARA INICAR UMA BATALHA COM OUTRO INIMIGO
 
+            //Inimigo1 inimigo1 = new Inimigo1();
 
+            //batalha = new Batalha(treinador, inimigo1);
+            //vencedor = batalha.IniciarBatalha();
 
+            //Console.WriteLine($"O treinador {vencedor.Nome} e seu {vencedor.Pokemons[0].Nome} ganharam!!!");
+            //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
+            // CTRL + K + C (COMENTA TUDO)
+            // CTRL + K + U (DESCOMENTA TUDO)
+            
+        }
 
+        public void Menu() // APOS CADA BATALHA/FASE SERA INICIALIZADA ESSA FUNÇÃO. (ainda em construção)
+        {
+            Console.WriteLine("[1] - Ir para a proxima batalha");
+            Console.WriteLine("[2] - Ver seus pokemon");
+            Console.WriteLine("[3] - Comprar na loja");
+            Console.Write("R: ");
+            int resposta = int.Parse(Console.ReadLine());
+
+            
         }
 
     }

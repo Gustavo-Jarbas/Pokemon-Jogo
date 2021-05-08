@@ -9,7 +9,11 @@ namespace Jogo.Entidades
     class Treinador
     {
         public string Nome { get; set; }
-        public double PokeCoin { get; set; }
+
+        public int Dinheiro = 10;
+        public int PokeBalls = 3;
+        public int Potion = 3;
+
         public List<Pokemon> Pokemons { get; set; } = new List<Pokemon>();
 
         public Treinador()
@@ -19,6 +23,15 @@ namespace Jogo.Entidades
         public Treinador(string nome)
         {
             Nome = nome;
+        }
+        public void Deposito(int dinheiro)
+        {
+            Dinheiro += dinheiro;
+        }
+        
+        public void MaisPokeball(int quantidade)
+        {
+            PokeBalls += quantidade;
         }
 
         public void MeusPokemon()

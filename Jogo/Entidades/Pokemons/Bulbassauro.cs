@@ -11,7 +11,8 @@ namespace Jogo.Entidades.Pokemons
         {
             this.Nome = "Bulbassauro";
             this.TipoPokemon = Tipo.Planta;
-            this.HpTotal = 24;
+            this.HpTotal = 50;
+            this.HpAtual = 50;
             this.AtaqueBasico = 2;
             this.AtaqueBasicoTxt = "Chicotada";
             this.Especial = 7;
