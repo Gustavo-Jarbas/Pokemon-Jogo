@@ -12,7 +12,7 @@ namespace Jogo.Entidades.Fases.Inimigos
     {
         public Inimigo1()
         {
-            this.Nome = "INIMIGO NUMERO UM";
+            this.Nome = "Carinha Maluko - Rocket";
             this.Dinheiro = 30;
             this.Pokemons.Add(new Charmander());
         }

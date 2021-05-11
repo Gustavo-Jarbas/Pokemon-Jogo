@@ -42,7 +42,7 @@ namespace Jogo.Entidades.FuncoesGame
             foreach (var letra in texto)
             {
                 Console.Write(letra);
-                Thread.Sleep(60);
+                Thread.Sleep(15);
 
 
             }
@@ -83,7 +83,7 @@ namespace Jogo.Entidades.FuncoesGame
             if (escolha == 2)
             {
 
-                Batalha.Play();
+                Batalha.PlayLooping();
                 
                 
             }
