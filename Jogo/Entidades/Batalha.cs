@@ -120,7 +120,7 @@ namespace Jogo.Entidades
                     int ataqueSelvagem = rnd.Next(1, 3);
 
                     if (ataqueSelvagem == 1)
-                    {
+                    {sa
 
                         AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemAtaqueTxt, pok2DanoNormal);
                     }
@@ -199,6 +199,11 @@ namespace Jogo.Entidades
                 Console.Beep(300, 500);
                 pok1Vida -= pokAtaqueDano;
             }
+
+        }
+
+        public void AtualizarStatus(Treinador treinador)
+        {
 
         }
 
