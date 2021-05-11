@@ -62,7 +62,7 @@ namespace Jogo.Entidades
             do
             {
                 int ataque;
-                int menuBatalha;
+                int menuBatalha = 0;
 
                 Console.WriteLine($"Pokemon Inimigo: {PokemonSelvagem}");
                 Console.WriteLine($"Vida: {pok2Vida}");
@@ -73,8 +73,18 @@ namespace Jogo.Entidades
                 Console.WriteLine("[1] - Ataques");
                 Console.WriteLine("[2] - Itens");
                 Console.WriteLine("Digite o numero da opção: ");
-                menuBatalha = int.Parse(Console.ReadLine());
-                if(menuBatalha == 1)
+                try
+                {
+                    menuBatalha = Convert.ToInt32(Console.ReadLine());
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Digite o numero da opção: ");
+                    menuBatalha = Convert.ToInt32(Console.ReadLine());
+                }
+                
+                if (menuBatalha == 1)
                 {
 
                     Console.WriteLine("Seus ataques são: ");
@@ -120,7 +130,7 @@ namespace Jogo.Entidades
                     int ataqueSelvagem = rnd.Next(1, 3);
 
                     if (ataqueSelvagem == 1)
-                    {sa
+                    {
 
                         AtaquePokemon(false, PokemonSelvagem, SeuPokemon, PokemonSelvagemAtaqueTxt, pok2DanoNormal);
                     }

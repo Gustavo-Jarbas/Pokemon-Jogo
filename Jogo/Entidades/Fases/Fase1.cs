@@ -47,12 +47,15 @@ namespace Jogo.Entidades.Fases
             inimigo1.Pokemons.Add(DoInimigo);
             bool proximafase = false;
 
+            Batalha batalha;
+            Treinador vencedor;
+
             do
             {
                 Console.Clear();
-                Batalha batalha = new Batalha(treinador, inimigo1);
+                batalha = new Batalha(treinador, inimigo1);
 
-                Treinador vencedor = batalha.IniciarBatalha();
+                vencedor = batalha.IniciarBatalha();
                 Console.WriteLine($"O treinador {vencedor.Nome} e seu {vencedor.Pokemons[0].Nome} ganharam!!!");
 
                 if (vencedor.Nome == inimigo1.Nome){
