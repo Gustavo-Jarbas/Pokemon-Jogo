@@ -20,8 +20,8 @@ namespace Jogo
 
             Historia novojogo = new Historia();
             novojogo.SolicitandoDadosJogador();
-            novojogo.Apresentacao();
-            novojogo.PrimeiraFase();
+            novojogo.Executar();
+
 
             
         }

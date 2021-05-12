@@ -35,7 +35,16 @@ namespace Jogo.Entidades.FuncoesGame
 
         }
 
+        public void Menu() // APOS CADA BATALHA/FASE SERA INICIALIZADA ESSA FUNÇÃO. (ainda em construção)
+        {
+            Console.WriteLine("[1] - Ir para a proxima batalha");
+            Console.WriteLine("[2] - Ver seus pokemon");
+            Console.WriteLine("[3] - Comprar na loja");
+            Console.Write("R: ");
+            int resposta = int.Parse(Console.ReadLine());
 
+
+        }
 
         public static void ImprimirTextos(string texto)
         {
