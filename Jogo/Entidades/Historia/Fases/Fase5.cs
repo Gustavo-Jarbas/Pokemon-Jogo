@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jogo.Entidades.Fases.Inimigos
+namespace Jogo.Entidades.Historia.Fases
 {
-    class Boss : Treinador
+    class Fase5
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jogo.Entidades.Fases
+namespace Jogo.Entidades.Historia.Fases
 {
     class Fase4
     {

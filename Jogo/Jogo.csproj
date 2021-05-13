@@ -6,12 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Entidades\som\**" />
-    <EmbeddedResource Remove="Entidades\som\**" />
-    <None Remove="Entidades\som\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
   </ItemGroup>
 

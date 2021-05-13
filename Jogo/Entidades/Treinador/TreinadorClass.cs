@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Jogo.Entidades.Pokemon;
 
-namespace Jogo.Entidades
+
+namespace Jogo.Entidades.Treinador
 {
-    class Treinador
+    class TreinadorClass
     {
         public string Nome { get; set; }
 
         public int Dinheiro = 10;
         public int PokeBalls = 3;
         public int Potion = 3;
+        public PokemonClass PokemonEscolhido { get; set; }
+        public List<PokemonClass> Pokemons { get; set; } = new List<PokemonClass>();
 
-        public List<Pokemon> Pokemons { get; set; } = new List<Pokemon>();
-
-        public Treinador()
+        public TreinadorClass()
         {
         }
 
-        public Treinador(string nome)
+        public TreinadorClass(string nome)
         {
             Nome = nome;
         }
@@ -28,7 +30,7 @@ namespace Jogo.Entidades
         {
             Dinheiro += dinheiro;
         }
-        
+
         public void MaisPokeball(int quantidade)
         {
             PokeBalls += quantidade;
@@ -36,16 +38,19 @@ namespace Jogo.Entidades
 
         public void MeusPokemon()
         {
-            foreach (Pokemon pok in Pokemons)
+            int contador = 0;
+
+            foreach (PokemonClass pok in Pokemons)
             {
-                Console.WriteLine(pok.Nome);
+                Console.WriteLine(contador + " - " + pok.Nome);
+                contador++;
             }
         }
 
         public void Pokedex()
         {
-            Console.WriteLine("Pokedex do "+ Nome);
-            foreach (Pokemon pok in Pokemons)
+            Console.WriteLine("Pokedex do " + Nome);
+            foreach (PokemonClass pok in Pokemons)
             {
                 StringBuilder sb = new StringBuilder();
 

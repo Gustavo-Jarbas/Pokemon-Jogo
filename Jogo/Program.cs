@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Media;
-using Jogo.Entidades;
-using Jogo.Entidades.Enums;
-using Jogo.Entidades.Pokemons;
-using Jogo.Entidades.FuncoesGame;
-using System.Threading.Tasks;
-using System.Threading;
-
+using Jogo.Entidades.Historia;
 
 namespace Jogo
 {
@@ -14,16 +7,9 @@ namespace Jogo
     {
         static void Main(string[] args)
         {
-            
+            HistoriaClass historia = new HistoriaClass();
 
-   
-
-            Historia novojogo = new Historia();
-            novojogo.SolicitandoDadosJogador();
-            novojogo.Executar();
-
-
-            
+            historia.IniciarHistoria();
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Jogo.Entidades.Enums;
 
-
-namespace Jogo.Entidades
+namespace Jogo.Entidades.Pokemon
 {
-    class Pokemon // Super Classe
+    class PokemonClass
     {
         public string Nome { get; set; }
         public Tipo TipoPokemon { get; set; }
@@ -17,15 +19,11 @@ namespace Jogo.Entidades
         public string EspecialTxt { get; set; }
         public string Descricao { get; set; }
 
-
-
-
-
-        public Pokemon()
+        public PokemonClass()
         {
         }
 
-        public Pokemon(string nome, Tipo tipoPokemon, int hpTotal, int hpAtual, int ataqueBasico, int especial, string descricao)
+        public PokemonClass(string nome, Tipo tipoPokemon, int hpTotal, int hpAtual, int ataqueBasico, int especial, string descricao)
         {
             Nome = nome;
             TipoPokemon = tipoPokemon;
@@ -35,8 +33,6 @@ namespace Jogo.Entidades
             Especial = especial;
             Descricao = descricao;
         }
-
-
 
     }
 }

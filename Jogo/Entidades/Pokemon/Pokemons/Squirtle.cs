@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Jogo.Entidades;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Jogo.Entidades.Enums;
 
-namespace Jogo.Entidades.Pokemons
+namespace Jogo.Entidades.Pokemon.Pokemons
 {
-    class Squirtle : Pokemon
+    class Squirtle : PokemonClass
     {
         public Squirtle()
         {
