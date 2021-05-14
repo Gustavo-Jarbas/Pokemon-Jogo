@@ -84,7 +84,7 @@ namespace Jogo.Entidades.Historia
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("Professor Pokemon: ");
             Console.ResetColor();
-            Textos.ImprimirTextos("Parabéns Jovem maravilhoso, voce venceu essa batalha e derretou o inimigo \n\n\n");
+            Textos.ImprimirTextos("Parabéns Jovem maravilhoso, voce venceu essa batalha e derrotou o inimigo \n\n\n");
         }
 
         public void Final()
