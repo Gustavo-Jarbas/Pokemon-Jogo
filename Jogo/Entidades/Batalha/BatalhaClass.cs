@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Jogo.Entidades.Treinador;
+using Jogo.Entidades.Estaticos;
 
 namespace Jogo.Entidades.Batalha
 {
@@ -29,6 +30,7 @@ namespace Jogo.Entidades.Batalha
 
         public TreinadorClass IniciarBatalha()
         {
+            Musicas.TocarMusica(2);
             Jogador1.PokemonEscolhido.HpAtual = Jogador1.PokemonEscolhido.HpTotal;
 
             do

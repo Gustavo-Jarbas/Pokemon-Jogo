@@ -7,19 +7,19 @@ using Jogo.Entidades.Enums;
 
 namespace Jogo.Entidades.Pokemon.Pokemons
 {
-    class Bulbassauro : PokemonClass
+    class Butterfree : PokemonClass
     {
-        public Bulbassauro()
+        public Butterfree()
         {
-            this.Nome = "Bulbassauro";
+            this.Nome = "Butterfree";
             this.TipoPokemon = Tipo.Planta;
-            this.HpTotal = 25;
-            this.HpAtual = 25;
+            this.HpTotal = 20;
+            this.HpAtual = 20;
             this.AtaqueBasico = 2;
-            this.AtaqueBasicoTxt = "Chicotada";
+            this.AtaqueBasicoTxt = "Asas da sabedoria";
             this.Especial = 7;
-            this.EspecialTxt = "Tempestade de folhas";
-            this.Descricao = "Dinossauro maconheiro";
+            this.EspecialTxt = "MEEEEEEEE";
+            this.Descricao = "Borboleta Gigante";
         }
     }
 }

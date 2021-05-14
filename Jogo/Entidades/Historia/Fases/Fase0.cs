@@ -23,10 +23,14 @@ namespace Jogo.Entidades.Historia.Fases
 
 
         public TreinadorClass Executar()
-        {
+         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("\nProfessor Pokemon: ");
+            Console.ResetColor();
             var textos = new List<string>();
-            textos.Add($"\nOlá jovem {Jogador.Nome} saudavel! desculpe por mantê-lo(a) esperando!\n\n\n");
-            textos.Add("\nMeu nome é Lucian\n" + "Mas pode me chamar de Professor Pokémon, todo mundo me chama assim :D\n\n");
+            textos.Add($"\n\nOlá jovem {Jogador.Nome} saudavel! desculpe por mantê-lo(a) esperando!\n\n\n");
+            textos.Add("\nMeu nome é Ednaldo Pereira\n" + "Mas pode me chamar de Professor Pokémon, todo mundo me chama assim :D\n\n");
             textos.Add("\nNós humanos vivemos ao lado de Pokémons, às vezes como companheiros amistosos e\nàs vezes como colegas de trabalho cooperativos\n");
             textos.Add("\n\n\nEntão você está pronto para essa aventura? :)\n\n");
 
@@ -38,13 +42,25 @@ namespace Jogo.Entidades.Historia.Fases
 
             Console.Clear();
             Dinheiro.ImprimirDinheiro(Jogador);
-            Textos.ImprimirTextos($"Você escolheu o tipo de Pokemon de {Jogador.Pokemons[0].TipoPokemon}, essa foi uma boa e fabulosa escolha" +
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("\nProfessor Pokemon: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos($"\n\nVocê escolheu o tipo de Pokemon de {Jogador.Pokemons[0].TipoPokemon}, essa foi uma boa e fabulosa escolha" +
                     $"\nCom essa especialidade o nome de seu Pokemon é {Jogador.Pokemons[0].Nome} \n");
+        
             Textos.ImprimirTextos("\n\nRepare que ao lado direito está seu dinheiro e conforme você ir vencendo batalhas vai ganhando mais e" +
-            "\nutilizar para comprar pokebolas e poçoes de cura\n");
-            Textos.ImprimirTextos("\n\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
+            "\nutilizar para comprar Pokebolas e Poções de Cura\n");
 
-            Textos.ImprimirTextos("\n\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("\nProfessor Pokemon: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos("\n\nComo voce parece ser legal estou te doando 3x Pokebolas e 3x Poções de Cura" +
+                "\nUtileze elas com sabedoria, pois você só pode capturar um Pokemon do inimigo quando ele está com" +
+                "\n30% de sua vida, e também não utilize as poções de cura atoa HUMMMM\n\n");
+            Textos.ImprimirTextos("\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
+         
+            Textos.ImprimirTextos("\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");
 
             int revanche;
 
@@ -66,8 +82,11 @@ namespace Jogo.Entidades.Historia.Fases
 
                 if (Vencedor.Nome == inimigo.Nome)
                 {
-                    Textos.ImprimirTextos("\n\n\nParabéns seu perdedor, voce acaba de perder essa batalha. :'(");
-                    Console.Write("\n\nMas não fique triste pq vamos te dar mais uma chance, deseja continuar?" +
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write($"\nP{inimigo.Nome}");
+                    Console.ResetColor();
+                    Textos.ImprimirTextos("\n\n\nParabéns seu perdedor, voce acaba de perder essa batalha. :'(\n");
+                    Console.Write("\n\nMas não fique triste pq vou te dar mais uma chance, deseja continuar?" +
                     "\n\n1 - Tentar novamente               2 - Desistir da vida \n" +
                     "\nR:");
                     revanche = int.Parse(Console.ReadLine());
@@ -78,6 +97,10 @@ namespace Jogo.Entidades.Historia.Fases
                         Jogador.Potion = backupPocao;
                         Jogador.PokeBalls = backupPokeballs;
 
+                    }
+                    else
+                    {
+                        System.Environment.Exit(1);
                     }
                 }
             } while (revanche != 2);

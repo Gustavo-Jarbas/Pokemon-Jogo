@@ -11,5 +11,13 @@ namespace Jogo.Entidades.Historia.Fases.Inimigos
 {
     class Inimigo2 : TreinadorClass
     {
+
+        Butterfree butterfree = new Butterfree();
+        public Inimigo2()
+        {
+            this.Nome = "Richie";
+            this.Pokemons.Add(butterfree);
+            this.Dinheiro = 20;
+        }
     }
 }

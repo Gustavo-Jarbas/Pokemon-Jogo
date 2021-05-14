@@ -12,7 +12,7 @@ namespace Jogo.Entidades.Historia
 {
     class HistoriaClass
     {
-        TreinadorClass jogador = new TreinadorClass();
+        public static TreinadorClass jogador = new TreinadorClass();
         IntroducaoClass introducao = new IntroducaoClass();
 
         
@@ -33,97 +33,34 @@ namespace Jogo.Entidades.Historia
 
             jogador = introducao.IniciarIntroducao();
 
+            // FASE 0
+            //-------------------------------------------
             fase0 = new Fase0(jogador);
             fase0.Executar();
-
+            PosBatalha.Executar();
             //------------------------------------------------
-            int prox = 1;
-            do
-            {
-                int r = PosBatalha.Menu();
+                   
 
-                if (r == 1)
-                {
-                    prox = 0;
-                    EscolhaPokemonBatalha();
-                }
-                if (r == 2)
-                {
-                    jogador.Pokedex();
-                    Console.ReadKey();
-                }
-                if (r == 3)
-                {
-                    Loja();
-                }
-            } while (prox == 1);
-            
 
+
+            //FASE 1
             fase1 = new Fase1(jogador);
             fase1.Executar();
+            PosBatalha.Executar();
             //----------------------------------------------
 
-           
+
+
+
+            //FASE 2
+            fase2 = new Fase2(jogador);
+            fase2.Executar();
+            PosBatalha.Executar();
+            //----------------------------------------------
 
 
         }
 
-        public void EscolhaPokemonBatalha()
-        {
-            Console.WriteLine("Escolha qual pokemon você deseja ");
-            jogador.MeusPokemon();
-            Console.Write("R: ");
-            int pokEscolhido = int.Parse(Console.ReadLine());
-            jogador.PokemonEscolhido = jogador.Pokemons[pokEscolhido];
 
-        }
-
-        public void Loja()
-        {
-            int comprarNovamente;
-            do
-            {
-                Console.Clear();
-                Dinheiro.ImprimirDinheiro(jogador);
-                Console.WriteLine("|-------------------LOJA-------------------|");
-                Console.WriteLine("| [1] - (5R$) 3x Pokeball                  | ");
-                Console.WriteLine("| [2] - (5R$) 3x Poções 5 de vida          |");
-                Console.WriteLine("|------------------------------------------|");
-                Console.WriteLine("R: ");
-                int itemComprado = int.Parse(Console.ReadLine());
-
-                if (itemComprado == 1)
-                {
-                    if (jogador.Dinheiro >= 5)
-                    {
-                        jogador.PokeBalls += 3;
-                        jogador.Dinheiro -= 5;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Seu caloteiro, você não tem dinheiro para comprar essas pokeballs!");
-                    }
-                }
-                if (itemComprado == 2)
-                {
-                    if (jogador.Dinheiro >= 5)
-                    {
-                        jogador.Potion += 3;
-                        jogador.Dinheiro -= 5;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Seu caloteiro, você não tem dinheiro para comprar essas pokeballs!");
-                    }
-                }
-                Console.Clear();
-
-                Console.WriteLine("Gostaria de comprar mais alguma coisa?");
-                Console.WriteLine("[1] - SIM                    [2] - NÃO");
-                Console.Write("R: ");
-                comprarNovamente = int.Parse(Console.ReadLine());
-
-            } while (comprarNovamente == 1);
-        }
     }
 }

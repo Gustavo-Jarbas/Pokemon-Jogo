@@ -4,22 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Jogo.Entidades.Enums;
-
 namespace Jogo.Entidades.Pokemon.Pokemons
 {
-    class Bulbassauro : PokemonClass
+    class Turtwig : PokemonClass
     {
-        public Bulbassauro()
+        public Turtwig()
         {
-            this.Nome = "Bulbassauro";
+            this.Nome = "Turtwig";
             this.TipoPokemon = Tipo.Planta;
-            this.HpTotal = 25;
-            this.HpAtual = 25;
+            this.HpTotal = 15;
+            this.HpAtual = 15;
             this.AtaqueBasico = 2;
-            this.AtaqueBasicoTxt = "Chicotada";
+            this.AtaqueBasicoTxt = "Rabada forte";
             this.Especial = 7;
-            this.EspecialTxt = "Tempestade de folhas";
-            this.Descricao = "Dinossauro maconheiro";
+            this.EspecialTxt = "Cabeçada KKKKKKK";
+            this.Descricao = "Tartaruguinha fofinha";
         }
     }
+    
+    
 }

@@ -14,7 +14,7 @@ namespace Jogo.Entidades.Estaticos
             foreach (var letra in texto)
             {
                 Console.Write(letra);
-                Thread.Sleep(15);
+                Thread.Sleep(40);
             }
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Press qualquer tecla ...");

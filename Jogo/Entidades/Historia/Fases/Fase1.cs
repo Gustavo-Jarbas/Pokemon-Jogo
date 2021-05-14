@@ -22,18 +22,41 @@ namespace Jogo.Entidades.Historia.Fases
         }
 
 
-        public TreinadorClass Executar() // unica parte q ue não é padrão é a historia.
+        public TreinadorClass Executar() 
         {
-            //Texto da Historia  da Fase 1 vai estar aqui, igual na Fase 0
+            Musicas.TocarMusica(1);
+            Inimigo1 inimigo = new Inimigo1();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"\n{inimigo.Nome}: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos($"\nOlá {Jogador.Nome}, tudo bem?\n");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"\n\nVocê: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos("\nOpa tudo bem parceiro e você?\n");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"\n{inimigo.Nome}: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos($"\nTudo belza, oque voce acha de uma batalha?\n");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"\n\nVocê: ");
+            Console.ResetColor();
+            Textos.ImprimirTextos("\nBora, quem perder passa todo o money :D\n");
+
+
+
 
             int revanche;
 
-            do //isso daq vai ser padrão em todas praticamente, só mudar os numero dos inimigos.
+            do 
             {
                 revanche = 2;
 
                 Console.Clear();
-                Inimigo1 inimigo = new Inimigo1(); 
 
                 backupPocao = Jogador.Potion;
                 backupPokeballs = Jogador.PokeBalls;
@@ -46,8 +69,11 @@ namespace Jogo.Entidades.Historia.Fases
 
                 if (Vencedor.Nome == inimigo.Nome)
                 {
-                    Textos.ImprimirTextos("\n\n\nParabéns seu perdedor, voce acaba de perder essa batalha. :'(");
-                    Console.Write("\n\nMas não fique triste pq vamos te dar mais uma chance, deseja continuar?" +
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write($"\nP{inimigo.Nome}");
+                    Console.ResetColor();
+                    Textos.ImprimirTextos("\n\n\nParabéns seu perdedor, voce acaba de perder essa batalha. :'(\n");
+                    Console.Write("\n\nMas não fique triste pq vou te dar mais uma chance, deseja continuar?" +
                     "\n\n1 - Tentar novamente               2 - Desistir da vida \n" +
                     "\nR:");
                     revanche = int.Parse(Console.ReadLine());
@@ -58,6 +84,10 @@ namespace Jogo.Entidades.Historia.Fases
                         Jogador.Potion = backupPocao;
                         Jogador.PokeBalls = backupPokeballs;
 
+                    }
+                    else
+                    {
+                        System.Environment.Exit(1);
                     }
                 }
             } while (revanche != 2);

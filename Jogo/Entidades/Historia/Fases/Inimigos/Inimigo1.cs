@@ -13,11 +13,11 @@ namespace Jogo.Entidades.Historia.Fases.Inimigos
     {
         //Crie um pokemon para o inimigo1, se baseie em um dos pokemon já criado, só tente pegar o pokemon caracteristico do vilão.
         //(por enquanto não se preocupe com a vida/  força do pokemon.  Para seguir a historia e ver se está tudo certo, crie oponentes que podemos vencer.)
-        Bulbassauro bulbassauro = new Bulbassauro();
+        Turtwig turtwig = new Turtwig();
         public Inimigo1()
         {
-            this.Nome = " Inimigo generico ";
-            this.Pokemons.Add(bulbassauro);
+            this.Nome = "Paul Doidao";
+            this.Pokemons.Add(turtwig);
             this.Dinheiro = 20;
         }
     }

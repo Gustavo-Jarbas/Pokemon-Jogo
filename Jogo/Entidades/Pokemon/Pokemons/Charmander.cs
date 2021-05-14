@@ -13,8 +13,8 @@ namespace Jogo.Entidades.Pokemon.Pokemons
         {
             this.Nome = "Charmander";
             this.TipoPokemon = Tipo.Fogo;
-            this.HpTotal = 50;
-            this.HpAtual = 50;
+            this.HpTotal = 80;
+            this.HpAtual = 80;
             this.AtaqueBasico = 3;
             this.AtaqueBasicoTxt = "Mordida";
             this.Especial = 5;
