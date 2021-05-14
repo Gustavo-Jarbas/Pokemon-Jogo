@@ -42,7 +42,7 @@ namespace Jogo.Entidades.Estaticos
                 if (r == 2)
                 {
                     HistoriaClass.jogador.Pokedex();
-                    Console.ReadKey();
+                   
                 }
                 if (r == 3)
                 {

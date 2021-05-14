@@ -17,7 +17,7 @@ namespace Jogo.Entidades.Estaticos
 
             if (escolha == 1)
             {
-                Inicial.PlayLooping();
+                Inicial.PlayLooping(); //Deu erro aqui pois está sem as musicas, baixe as musicas do drive e coloque na pasta net5.0 (recomendo baixar o volume quando executar o programa e.e)
             }
             if (escolha == 2)
             {
