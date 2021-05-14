@@ -16,9 +16,9 @@ namespace Jogo.Entidades.Historia.Fases
         TreinadorClass Vencedor;
         int backupPocao;
         int backupPokeballs;
-        public Fase0(TreinadorClass jogador1)
+        public Fase0(TreinadorClass jogador)
         {
-            Jogador = jogador1;
+            Jogador = jogador;
         }
 
 
@@ -31,7 +31,7 @@ namespace Jogo.Entidades.Historia.Fases
             var textos = new List<string>();
             textos.Add($"\n\nOlá jovem {Jogador.Nome} saudavel! desculpe por mantê-lo(a) esperando!\n\n\n");
             textos.Add("\nMeu nome é Ednaldo Pereira\n" + "Mas pode me chamar de Professor Pokémon, todo mundo me chama assim :D\n\n");
-            textos.Add("\nNós humanos vivemos ao lado de Pokémons, às vezes como companheiros amistosos e\nàs vezes como colegas de trabalho cooperativos\n");
+            textos.Add("\nNós humanos vivemos ao lado de Pokémon, às vezes como companheiros amistosos e\nàs vezes como colegas de trabalho cooperativos\n");
             textos.Add("\n\n\nEntão você está pronto para essa aventura? :)\n\n");
 
             foreach (var texto in textos)
@@ -56,8 +56,8 @@ namespace Jogo.Entidades.Historia.Fases
             Console.Write("\nProfessor Pokemon: ");
             Console.ResetColor();
             Textos.ImprimirTextos("\n\nComo voce parece ser legal estou te doando 3x Pokebolas e 3x Poções de Cura" +
-                "\nUtileze elas com sabedoria, pois você só pode capturar um Pokemon do inimigo quando ele está com" +
-                "\n30% de sua vida, e também não utilize as poções de cura atoa HUMMMM\n\n");
+                "\nUtileze elas com sabedoria, pois você tem a chance de capturar um Pokemon do inimigo quando ele está com" +
+                "\n60% de sua vida ou menos, e também não utilize as poções de cura atoa HUMMMM\n\n");
             Textos.ImprimirTextos("\n\nEntao... oque você acha de iniciarmos com um breve duelo para testar suas habilidades? \n\n");
          
             Textos.ImprimirTextos("\n\nTem um cara maluquinho da cabeça que está atacando a vila, vamos lá acabar com ele?\n\n");

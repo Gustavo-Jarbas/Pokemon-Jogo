@@ -11,5 +11,12 @@ namespace Jogo.Entidades.Historia.Fases.Inimigos
 {
     class Inimigo3 : TreinadorClass
     {
+        Carnivine carnivine = new Carnivine();
+        public Inimigo3()
+        {
+            this.Nome = "James";
+            this.Pokemons.Add(carnivine);
+            this.Dinheiro = 25;
+        }
     }
 }

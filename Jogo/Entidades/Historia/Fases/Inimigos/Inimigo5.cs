@@ -11,6 +11,12 @@ namespace Jogo.Entidades.Historia.Fases.Inimigos
 {
     class Inimigo5 : TreinadorClass
     {
-
+        Magikarp magikarp = new Magikarp();
+        public Inimigo5()
+        {
+            this.Nome = "Meowth";
+            this.Pokemons.Add(magikarp);
+            this.Dinheiro = 50;
+        }
     }
 }

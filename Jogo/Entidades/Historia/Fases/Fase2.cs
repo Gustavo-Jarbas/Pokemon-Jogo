@@ -16,9 +16,9 @@ namespace Jogo.Entidades.Historia.Fases
         TreinadorClass Vencedor;
         int backupPocao;
         int backupPokeballs;
-        public Fase2(TreinadorClass jogador1)
+        public Fase2(TreinadorClass jogador)
         {
-            Jogador = jogador1;
+            Jogador = jogador;
         }
 
 

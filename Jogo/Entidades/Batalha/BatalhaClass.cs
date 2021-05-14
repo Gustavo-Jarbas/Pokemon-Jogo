@@ -152,6 +152,11 @@ namespace Jogo.Entidades.Batalha
                         --Jogador1.Potion;
                     }
 
+                    if (respostaItem == 1 && Jogador1.Potion < 0)
+                    {
+                        Textos.ImprimirTextosErro("\nVocê não tem poções!\n");
+                    }
+
                     if (respostaItem == 2 && Jogador1.PokeBalls > 0)
                     {
                         if (Jogador2.Pokemons[0].HpAtual < (Jogador2.Pokemons[0].HpTotal - (Jogador2.Pokemons[0].HpTotal * 0.6))) // se a vida do pokemon for menor que 60% da vida maxima dele, então pode ter chance de capturar
@@ -164,24 +169,28 @@ namespace Jogo.Entidades.Batalha
                             if (captura == 1)
                             {
                                 Jogador1.Pokemons.Add(Jogador2.Pokemons[0]);
-                                Console.WriteLine($"O Pokemon {Jogador2.Pokemons[0].Nome} foi capturado com sucesso.");
+                                Textos.ImprimirTextosErro($"\nO Pokemon {Jogador2.Pokemons[0].Nome} foi capturado com sucesso.\n");
                                 Vencedor = Jogador1;
                                 Jogador1.Dinheiro += Jogador2.Dinheiro;
+
+                                
                                 return Vencedor;
                             }
 
-
-
+                            
                             Console.Clear();
                             continue;
                         }
+                        else
+                        {
+                            --Jogador1.PokeBalls;
+                        }
                     }
 
-                    if (respostaItem == 2)
+                    if (respostaItem == 2 && Jogador1.PokeBalls <= 0)
                     {
-                        --Jogador1.PokeBalls;
+                        Textos.ImprimirTextosErro("\nVocê não tem Pokebolas!\n");
                     }
-
                 }
 
             } while (Jogador1.PokemonEscolhido.HpAtual > 0 && Jogador2.Pokemons[0].HpAtual > 0);

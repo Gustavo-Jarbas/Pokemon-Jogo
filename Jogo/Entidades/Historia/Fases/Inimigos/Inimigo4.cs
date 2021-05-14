@@ -11,5 +11,12 @@ namespace Jogo.Entidades.Historia.Fases.Inimigos
 {
     class Inimigo4 : TreinadorClass
     {
+        Seviper seviper = new Seviper();
+        public Inimigo4()
+        {
+            this.Nome = "Jassie";
+            this.Pokemons.Add(seviper);
+            this.Dinheiro = 15;
+        }
     }
 }

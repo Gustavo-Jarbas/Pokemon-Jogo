@@ -10,6 +10,7 @@ namespace Jogo.Entidades.Enums
     {
         Fogo = 0,
         Agua = 1,
-        Planta = 2
+        Planta = 2,
+        Veneno = 3
     }
 }

@@ -19,7 +19,7 @@ namespace Jogo.Entidades.Pokemon.Pokemons
             this.AtaqueBasicoTxt = "Asas da sabedoria";
             this.Especial = 7;
             this.EspecialTxt = "MEEEEEEEE";
-            this.Descricao = "Borboleta Gigante";
+            this.Descricao = "Aedes aegypti";
         }
     }
 }

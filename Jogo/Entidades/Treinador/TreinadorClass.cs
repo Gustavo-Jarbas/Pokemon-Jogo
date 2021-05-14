@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Jogo.Entidades.Pokemon;
-
+using Jogo.Entidades.Estaticos;
 
 namespace Jogo.Entidades.Treinador
 {
@@ -62,6 +62,7 @@ namespace Jogo.Entidades.Treinador
 
                 Console.WriteLine(sb);
             }
+            Textos.ImprimirTextos("\nQue ótima coleção!\n");
         }
     }
 }

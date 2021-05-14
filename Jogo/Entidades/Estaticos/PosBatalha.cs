@@ -16,10 +16,7 @@ namespace Jogo.Entidades.Estaticos
         public static int Menu() // APOS CADA BATALHA/FASE SERA INICIALIZADA ESSA FUNÇÃO. (ainda em construção)
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("Professor Pokemon: ");
-            Console.ResetColor();
-            Textos.ImprimirTextos("Parabéns Jovem maravilhoso, voce venceu essa batalha e derretou o inimigo \n\n\n");
+        
             Console.WriteLine("\n\n[1] - Ir para a proxima batalha");
             Console.WriteLine("[2] - Pokedex");
             Console.WriteLine("[3] - Comprar na loja");

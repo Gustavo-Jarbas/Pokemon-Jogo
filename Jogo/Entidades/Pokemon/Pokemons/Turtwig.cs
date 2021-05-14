@@ -15,9 +15,9 @@ namespace Jogo.Entidades.Pokemon.Pokemons
             this.HpTotal = 15;
             this.HpAtual = 15;
             this.AtaqueBasico = 2;
-            this.AtaqueBasicoTxt = "Rabada forte";
+            this.AtaqueBasicoTxt = "Cabeçada";
             this.Especial = 7;
-            this.EspecialTxt = "Cabeçada KKKKKKK";
+            this.EspecialTxt = "Tempestade de folhas";
             this.Descricao = "Tartaruguinha fofinha";
         }
     }

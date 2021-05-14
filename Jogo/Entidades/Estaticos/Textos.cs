@@ -22,5 +22,29 @@ namespace Jogo.Entidades.Estaticos
             Console.ReadKey();
             Console.Write("                         ");
         }
+
+        public static void ImprimirTextosSemPause(string texto)
+        {
+            foreach (var letra in texto)
+            {
+                Console.Write(letra);
+                Thread.Sleep(40);
+            }
+            Console.Write("                         ");
+        }
+
+        public static void ImprimirTextosErro(string texto)
+        {
+            foreach (var letra in texto)
+            {
+                Console.Write(letra);
+                Thread.Sleep(40);
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Pressione qualquer tecla ...");
+            Console.ResetColor();
+            Console.ReadKey();
+            Console.Write("                         ");
+        }
     }
 }
